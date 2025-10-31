@@ -1,51 +1,30 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
-import Navbar from '@/Components/Common/Navbar.vue';
-import HeroBanner from '@/Components/Homepage/Herobanner.vue';
+import { Head } from '@inertiajs/vue3'
+import HeroBanner from '@/Components/Homepage/Herobanner.vue'
+import Div from '@/Components/Container/Div.vue'
+import Aboutus from '@/Components/Aboutus/Aboutus.vue'
+import GallaryImamge from '@/Components/GallaryImage/GallaryImamge.vue' 
+import spaLayout from '@/layouts/spa/spaLayout.vue' 
 
 defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
-    },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
-    },
-});
-
-// function handleImageError() {
-//     document.getElementById('screenshot-container')?.classList.add('!hidden');
-//     document.getElementById('docs-card')?.classList.add('!row-span-1');
-//     document.getElementById('docs-card-content')?.classList.add('!flex-row');
-//     document.getElementById('background')?.classList.add('!hidden');
-// }
+  canLogin: Boolean,
+  canRegister: Boolean,
+  laravelVersion: String,
+  phpVersion: String,
+})
 </script>
 
 <template>
+  <spaLayout title="Welcome">
+    <HeroBanner />
 
-    <Head title="Welcome" />
-    <div class="flex min-h-screen flex-col">
-        <header class="fixed top-0 left-0 w-full bg-[#FDFDFC] dark:bg-[#0a5753] shadow-sm py-3 px-4 z-50">
-            <div class="flex lg:col-start-2 lg:justify-center">
-            </div>
-
-        </header>
-        <!-- Include Navbar Component -->
-        <Navbar :canRegister="true" />
-        <!-- Include HeroBanner Component -->
-        <HeroBanner />
-        <main class="mt-6">
-        </main>
-
-        <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-
-        </footer>
-    </div>
+    <section class="mt-10 text-center">
+      <!-- about us -->
+      <h4>About us</h4>
+      <Aboutus/>
+      <Div/> 
+    <!--Gallary Image  -->
+     <GallaryImamge/>
+    </section>
+  </spaLayout>
 </template>
